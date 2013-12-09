@@ -52,11 +52,11 @@ begin
 procedure TForm1.CheckForm;
 begin
   try
-    StrToInt(edit1.Text);
+    StrToFloat(edit1.Text);
     StrToFloat(edit2.Text);
-    StrToInt(edit3.Text);
+    StrToFloat(edit3.Text);
     StrToFloat(edit4.Text);
-    if StrToFloat(edit1.Text) <= StrToFloat(edit2.Text) then
+    if StrToFloat(edit1.Text) >= StrToFloat(edit2.Text) then
       Showmessage('Левая граница не может быть больше правой. Введите верные данные.');
   except
     Showmessage('Введите верные данные.');
@@ -77,7 +77,7 @@ begin
      if (y1 * y2) < 0 then begin
        repeat
          y1 := ExecFX(x1);
-         y2 := ExecFX(x1);
+         y2 := ExecFX(x2);
          k := (y1 - y2) / (x1 - x2);//
          b := y1 - k * x1;
          x := -b / k;
@@ -85,6 +85,7 @@ begin
          d1 := sqr(x1 - x) + sqr(y1 - y);
          d2 := sqr(x2 - x) + sqr(y2 - y);
          if d1 > d2 then begin
+           d1 := d2;
            x1 := x;
          end else x2 := x;
        until d1 < StrToFloat(edit3.Text);
@@ -120,6 +121,7 @@ begin
 end;
 procedure TForm1.Button3Click(Sender: TObject);
 begin
+  Chart1.Visible:=true;
   Form1.Height:=314;
   Form1.Width:=590;
   Chart1LineSeries1.Clear;
