@@ -1,0 +1,71 @@
+unit Unit2;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
+  Dialogs, StdCtrls, ExtCtrls,Math;
+
+type
+
+  { TForm2 }
+
+  TForm2 = class(TForm)
+    Button1: TButton;
+    Chart1: TChart;
+    Chart1LineSeries1: TLineSeries;
+    Chart1LineSeries2: TLineSeries;
+    Timer1: TTimer;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm2 }
+
+procedure TForm2.FormCreate(Sender: TObject);
+ // var
+//x:real;
+begin
+Chart1LineSeries1.Clear;
+Chart1LineSeries2.Clear;
+
+While x1<=x2 do begin
+ if x1<>0 then
+ Chart1Lineseries1.AddXY(x1,Power(x1,4)+2*power(x1,3)-x1-1,'',clred);
+ x1:=x1+0.0001;
+end;
+end;
+
+procedure TForm2.Timer1Timer(Sender: TObject);
+begin
+ y1:=form1.ExecFX(1x);
+ series2.AddXY(x1,y1-x1,'',clgreen);
+ //d:=abs(y-x1);
+// x1:=y;
+end;
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+  xn:=strtofloat(form1.ededit1.text);
+ xk :=strtofloat(form1.ededit2.text);
+ eps:=strtofloat(form1.ededit3.text);
+Chart1Lineseries2.Clear;
+Timer1.Enabled:=true;
+end;
+
+end.
+

@@ -1,0 +1,52 @@
+object Form2: TForm2
+  Left = 242
+  Height = 305
+  Top = 264
+  Width = 381
+  Caption = 'Form2'
+  ClientHeight = 305
+  ClientWidth = 381
+  OnCreate = FormCreate
+  LCLVersion = '1.0.12.0'
+  object Chart1: TChart
+    Left = 16
+    Height = 240
+    Top = 16
+    Width = 352
+    AxisList = <    
+      item
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+      end    
+      item
+        Alignment = calBottom
+        Minors = <>
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    ParentColor = False
+    object Chart1LineSeries1: TLineSeries
+    end
+    object Chart1LineSeries2: TLineSeries
+    end
+  end
+  object Button1: TButton
+    Left = 24
+    Height = 25
+    Top = 264
+    Width = 75
+    Caption = 'Итерации'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    left = 137
+    top = 268
+  end
+end
